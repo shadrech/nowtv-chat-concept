@@ -10,7 +10,7 @@ export const BodyWrapper = styled('div')`
 
 export const ChatLogWrapper = styled('div')`
   flex-grow: 3;
-  background: #EDEFF1;
+  background: #e5ecef;
   padding: 4rem 5rem;
   overflow-y: scroll;
 `;

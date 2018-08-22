@@ -1,16 +1,6 @@
-import React from "react";
-import PropType from "prop-types";
-import styled, {css} from "react-emotion";
-import moment from "moment";
+import styled, {css} from "react-emotion"
 
-const formats = {
-  sameDay: '[Today]',
-  nextDay: '[Tomorrow at ] H:mm',
-  lastDay: '[Yesterday at ] H:mm',
-  sameElse: 'DD/MM/YYYY [at] H:mm'
-};
-
-const MessageWrapper = styled('div')`
+export const MessageWrapper = styled('div')`
   width: 100%;
   display: flex;
   align-items: center;
@@ -20,7 +10,7 @@ const MessageWrapper = styled('div')`
   position: relative;
 `;
 
-const TextWrapper = styled('div')`
+export const TextWrapper = styled('div')`
   background: ${props => props.alignment === "right" ? "#EE5C26" : "white"};
   color: ${props => props.alignment === "right" ? "white" : "#2E3D69"};
   padding: 1rem;
@@ -45,7 +35,7 @@ const TextWrapper = styled('div')`
   }
 `;
 
-const AvatarWrapper = styled('div')`
+export const AvatarWrapper = styled('div')`
   order: ${props => props.alignment === "right" ? 2 : 1};
   ${props => props.alignment === "right" ? css`
     margin-left: 1rem;
@@ -79,14 +69,14 @@ const AvatarWrapper = styled('div')`
   }
 `;
 
-const Time = styled('span')`
+export const Time = styled('span')`
   font-size: 0.7rem;
   position: absolute;
   bottom: -1.2rem;
   width: 7rem;
 `;
 
-const Avatar = styled('div')`
+export const Avatar = styled('div')`
   background-image: url(${props => props.avatar});
   background-position: center;
   background-size: contain;
@@ -94,28 +84,3 @@ const Avatar = styled('div')`
   height: 3rem;
   border-radius: 1.5rem;
 `;
-
-const Message = ({message: {message, avatar, timestamp, email}, alignment}) => (
-  <MessageWrapper alignment={alignment}>
-    <TextWrapper alignment={alignment}>{message}</TextWrapper>
-    <AvatarWrapper alignment={alignment} email={email}>
-      <Avatar avatar={avatar} />
-      <Time>{moment(timestamp).calendar(null, formats)}</Time>
-    </AvatarWrapper>
-  </MessageWrapper>
-);
-
-Message.propTypes = {
-  message: PropType.objectOf({
-    messageId: PropType.string,
-    userId: PropType.string,
-    fullName: PropType.string,
-    timestamp: PropType.string,
-    email: PropType.string,
-    message: PropType.string,
-    avatar: PropType.string,
-  }),
-  alignment: PropType.oneOf(["right", "left"])
-};
-
-export default Message;

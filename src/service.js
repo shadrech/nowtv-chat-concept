@@ -1,6 +1,6 @@
 import { getMessages, getMembers } from "./data";
 
-export default async function getChatLog() {
+export default async function getChatLog(withMembers = false) {
   const promises = [getMessages(), getMembers()];
   const [messages, members] = await Promise.all(promises);
 
@@ -17,9 +17,11 @@ export default async function getChatLog() {
     })));
   }, []);
 
-  return chatData.sort((c1, c2) => {
+  const chatLog = chatData.sort((c1, c2) => {
     const d1 = new Date(c1.timestamp);
     const d2 = new Date(c2.timestamp);
     return d2 - d1;
   });
+
+  return withMembers ? {chatLog, members} : chatLog;
 };

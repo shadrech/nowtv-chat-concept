@@ -5,6 +5,7 @@ import getChatLog from './service';
 class Container extends React.Component {
   state = {
     messages: [],
+    members: [],
     loading: true,
     error: null
   }
@@ -12,11 +13,12 @@ class Container extends React.Component {
   async componentDidMount() {
     const {state} = this;
     try {
-      getChatLog()
-      .then((messages) => {
+      getChatLog(true)
+      .then(({chatLog, members}) => {
         this.setState({
           error: null,
-          messages,
+          messages: chatLog,
+          members,
           loading: false
         });
       });
