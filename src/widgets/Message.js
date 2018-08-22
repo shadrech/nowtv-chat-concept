@@ -56,6 +56,27 @@ const AvatarWrapper = styled('div')`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  
+  &:before {
+    content: ${props => `"${props.email}"`};
+    position: absolute;
+    background: #1F2B49;
+    padding: 0.5rem;
+    display: flex;
+    font-size: 0.75rem;
+    color: white;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    top: -0.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
 `;
 
 const Time = styled('span')`
@@ -74,10 +95,10 @@ const Avatar = styled('div')`
   border-radius: 1.5rem;
 `;
 
-const Message = ({message: {message, avatar, timestamp}, alignment}) => (
+const Message = ({message: {message, avatar, timestamp, email}, alignment}) => (
   <MessageWrapper alignment={alignment}>
     <TextWrapper alignment={alignment}>{message}</TextWrapper>
-    <AvatarWrapper alignment={alignment}>
+    <AvatarWrapper alignment={alignment} email={email}>
       <Avatar avatar={avatar} />
       <Time>{moment(timestamp).calendar(null, formats)}</Time>
     </AvatarWrapper>
