@@ -5,7 +5,7 @@ import moment from "moment";
 import { MessageWrapper, TextWrapper, AvatarWrapper, Avatar, Time } from "./styles";
 
 const formats = {
-  sameDay: '[Today]',
+  sameDay: '[Today at] H:mm',
   nextDay: '[Tomorrow at ] H:mm',
   lastDay: '[Yesterday at ] H:mm',
   sameElse: 'DD/MM/YYYY [at] H:mm'
