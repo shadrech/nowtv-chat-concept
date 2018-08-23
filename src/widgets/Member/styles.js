@@ -2,9 +2,9 @@ import styled from "react-emotion";
 import { Avatar as StandardAvatar } from "../Message/styles";
 
 export const MemberWrapper = styled('div')`
-  color: #000;
+  color: ${props => props.active ? "white" : "#1F2B49"};
   margin: 1rem 0;
-  background: white;
+  background: ${props => props.active ? "#1F2B49" : "white"};
   border-radius: 0.2rem;
   padding: 0.5rem;
   display: flex;

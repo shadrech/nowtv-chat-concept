@@ -5,7 +5,7 @@ export const MessageWrapper = styled('div')`
   display: flex;
   align-items: center;
   justify-content: ${props => props.alignment === "right" ? "flex-end" : "flex-start"};
-  margin: 0.5rem 0;
+  margin: 1.25rem 0;
   font-family: sans-serif;
   position: relative;
 `;

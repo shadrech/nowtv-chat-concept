@@ -14,7 +14,12 @@ const MembersArea = ({members, activeMember, makeActiveMember, clearActiveMember
       </TopSection>
     }
     <MiddleSection activeMember={activeMember}>
-      {members.map(m => <Member key={m.id} member={m} makeActiveMember={makeActiveMember} />)}
+      {members.map(m => <Member
+                          key={m.id}
+                          member={m}
+                          makeActiveMember={makeActiveMember}
+                          activeMember={activeMember}
+                        />)}
     </MiddleSection>
     <BottomSection>
       <DetailsHeading onClick={clearActiveMember}>Show All Messages</DetailsHeading>
