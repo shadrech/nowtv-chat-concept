@@ -33,12 +33,10 @@ class Container extends React.Component {
   }
 
   makeActiveMember = member => {
-    console.log("SET ACTIVE", member);
     this.setState({activeMember: member});
   }
 
   clearActiveMember = () => {
-    console.log("CLEAR!!!!")
     this.setState({activeMember: null});
   }
   
