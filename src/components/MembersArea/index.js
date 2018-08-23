@@ -3,19 +3,21 @@ import React from "react";
 import { MembersWrapper, TopSection, Avatar, NameHeading, DetailsHeading, MiddleSection, BottomSection } from "./styles";
 import Member from "../../widgets/Member";
 
-const MembersArea = ({members, activeMember}) => (
+const MembersArea = ({members, activeMember, makeActiveMember, clearActiveMember}) => (
   <MembersWrapper>
-    <TopSection>
-      <Avatar avatar={activeMember.avatar} />
-      <NameHeading>{`${activeMember.firstName} ${activeMember.lastName}`}</NameHeading>
-      <DetailsHeading>{activeMember.email}</DetailsHeading>
-      <DetailsHeading>{activeMember.ip}</DetailsHeading>
-    </TopSection>
-    <MiddleSection>
-      {members.map(m => <Member member={m} />)}
+    {activeMember && 
+      <TopSection>
+        <Avatar avatar={activeMember.avatar} />
+        <NameHeading>{`${activeMember.firstName} ${activeMember.lastName}`}</NameHeading>
+        <DetailsHeading>{activeMember.email}</DetailsHeading>
+        <DetailsHeading>{activeMember.ip}</DetailsHeading>
+      </TopSection>
+    }
+    <MiddleSection activeMember={activeMember}>
+      {members.map(m => <Member key={m.id} member={m} makeActiveMember={makeActiveMember} />)}
     </MiddleSection>
     <BottomSection>
-      <DetailsHeading>Clear All</DetailsHeading>
+      <DetailsHeading onClick={clearActiveMember}>Show All Messages</DetailsHeading>
     </BottomSection>
   </MembersWrapper>
 );

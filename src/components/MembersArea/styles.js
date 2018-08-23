@@ -2,7 +2,7 @@ import styled from "react-emotion";
 
 export const MembersWrapper = styled('div')`
   background: #eff3f5;
-  flex-grow: 2;
+  width: 20rem;
 `;
 
 export const TopSection = styled('div')`
@@ -47,7 +47,7 @@ export const DetailsHeading = styled(NameHeading)`
 `;
 
 export const MiddleSection = styled('div')`
-  height: calc(100% - 15rem);
+  height: calc(100% - ${props => props.activeMember ? "15rem" : "3rem"});
   overflow-y: scroll;
   padding: 1rem;
   box-sizing: border-box;

@@ -3,11 +3,11 @@ import React from "react";
 import { MemberWrapper } from "./styles";
 import { Avatar, MemberDetails, Name, Text } from "./styles";
 
-const Member = ({member: {avatar, lastName, firstName}}) => (
-  <MemberWrapper>
-    <Avatar avatar={avatar} />
+const Member = ({member, makeActiveMember}) => (
+  <MemberWrapper onClick={() => makeActiveMember(member)}>
+    <Avatar avatar={member.avatar} />
     <MemberDetails>
-      <Name>{`${firstName} ${lastName}`}</Name>
+      <Name>{`${member.firstName} ${member.lastName}`}</Name>
       <Text>{`5 total messages`}</Text>
     </MemberDetails>
   </MemberWrapper>

@@ -1,4 +1,4 @@
-import styled, { css } from "react-emotion";
+import styled from "react-emotion";
 import { Avatar as StandardAvatar } from "../Message/styles";
 
 export const MemberWrapper = styled('div')`

@@ -1,7 +1,6 @@
 import styled from "react-emotion";
 
 export const BodyWrapper = styled('div')`
-  background: red;
   display: flex;
   position: relative;
   width: 100%;
@@ -9,7 +8,7 @@ export const BodyWrapper = styled('div')`
 `;
 
 export const ChatLogWrapper = styled('div')`
-  flex-grow: 3;
+  flex-grow: 2;
   background: #e5ecef;
   padding: 4rem 5rem;
   overflow-y: scroll;
