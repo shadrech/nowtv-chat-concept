@@ -9,5 +9,6 @@ describe("<AppBody />", () => {
   test("should render as expected", async () => {
     const appBody = shallow(<AppBody messages={messages} members={members} />);
     expect(appBody).toMatchSnapshot();
+    
   })
 })

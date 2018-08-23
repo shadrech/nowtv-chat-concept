@@ -8,7 +8,7 @@ class AppBody extends Component {
   render() {
     const {messages, members, activeMember, ...rest /*loading, error*/} = this.props;
     const mssgs = activeMember ? messages.filter(m => m.userId === activeMember.id) : messages;
-    console.log(this.props)
+
     return (
       <BodyWrapper>
         <ChatLogWrapper>

@@ -22,15 +22,7 @@ const Message = ({message: {message, avatar, timestamp, email}, alignment}) => (
 );
 
 Message.propTypes = {
-  message: PropType.objectOf({
-    messageId: PropType.string,
-    userId: PropType.string,
-    fullName: PropType.string,
-    timestamp: PropType.string,
-    email: PropType.string,
-    message: PropType.string,
-    avatar: PropType.string,
-  }),
+  message: PropType.object,
   alignment: PropType.oneOf(["right", "left"])
 };
 
