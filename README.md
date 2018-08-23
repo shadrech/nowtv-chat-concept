@@ -1,6 +1,6 @@
 # NowTV React Chat Concept
 
-![NowTV](./screenshot.jpg)
+![NowTV](./clip.gif)
 
 ## Tasks
 
