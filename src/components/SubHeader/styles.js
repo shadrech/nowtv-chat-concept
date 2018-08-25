@@ -4,7 +4,7 @@ import { MenuItem } from "../Header/styles";
 
 export const SubHeaderWrapper = styled('div')`
   height: 3.2rem;
-  padding: 0 25rem;
+  padding: 0 15rem;
   background: #283765;
   display: flex;
   align-items: center;
