@@ -3,4 +3,4 @@ var Adapter = require('enzyme-adapter-react-15');
 
 enzyme.configure({ adapter: new Adapter() });
 
-require('jsdom-global/register');
+// require('jsdom-global/register');

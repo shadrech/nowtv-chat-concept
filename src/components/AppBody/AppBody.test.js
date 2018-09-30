@@ -6,7 +6,7 @@ import { dummyStateData } from "../../utils/testing";
 
 describe("<AppBody />", () => {
   const {messages, members} = dummyStateData;
-  test("should render as expected", async () => {
+  test("should render as expected", () => {
     const appBody = shallow(<AppBody messages={messages} members={members} />);
     expect(appBody).toMatchSnapshot();
     

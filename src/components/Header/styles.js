@@ -1,7 +1,7 @@
 import styled from "react-emotion";
 import {ReactComponent as Icon} from "../../assets/logo.svg";
 
-export const HeaderWrapper = styled('div')`
+export const HeaderWrapper = styled.div`
   width: 100%;
   height: 3.5rem;
   background: #1F2B49;
@@ -15,13 +15,13 @@ export const Logo = styled(Icon)`
   height: 1.5rem;
 `;
 
-export const Menu = styled('div')`
+export const Menu = styled.div`
   position: absolute;
   right: 1rem;
   height: 100%;
 `;
 
-export const MenuItem = styled('div')`
+export const MenuItem = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -35,7 +35,7 @@ export const MenuItem = styled('div')`
   }
 `;
 
-export const ItemText = styled('p')`
+export const ItemText = styled.p`
   color: white;
   font-size: 1rem;
 `;

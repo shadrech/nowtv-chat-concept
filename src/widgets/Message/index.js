@@ -2,7 +2,7 @@ import React from "react";
 import PropType from "prop-types";
 import moment from "moment";
 
-import { MessageWrapper, TextWrapper, AvatarWrapper, Avatar, Time } from "./styles";
+import { MessageWrapper, TextWrapper, AvatarWrapper, Avatar, Time, EmailWrapper } from "./styles";
 
 const formats = {
   sameDay: '[Today at] H:mm',
@@ -14,9 +14,10 @@ const formats = {
 const Message = ({message: {message, avatar, timestamp, email}, alignment}) => (
   <MessageWrapper alignment={alignment}>
     <TextWrapper alignment={alignment}>{message}</TextWrapper>
-    <AvatarWrapper alignment={alignment} email={email}>
+    <AvatarWrapper alignment={alignment}>
       <Avatar avatar={avatar} />
       <Time>{moment(timestamp).calendar(null, formats)}</Time>
+      <EmailWrapper>{email}</EmailWrapper>
     </AvatarWrapper>
   </MessageWrapper>
 );

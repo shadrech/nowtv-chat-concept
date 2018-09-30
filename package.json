@@ -1,14 +1,16 @@
 {
-  "name": "interview",
+  "name": "nowtv",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "babel-plugin-emotion": "^9.2.10",
     "enzyme": "^3.4.4",
     "enzyme-to-json": "^3.3.4",
     "jest-emotion": "^9.2.7",
+    "jest-enzyme": "^6.1.2",
     "jsdom": "12.0.0",
     "jsdom-global": "3.0.2",
-    "react-test-renderer": "^15.6.2"
+    "react-test-renderer": "15.6.2"
   },
   "dependencies": {
     "@babel/core": "7.0.0-beta.46",
@@ -26,7 +28,7 @@
     "css-loader": "0.28.11",
     "dotenv": "5.0.1",
     "dotenv-expand": "4.2.0",
-    "emotion": "^9.2.6",
+    "emotion": "^9.2.10",
     "enzyme-adapter-react-15": "^1.0.6",
     "eslint": "4.19.1",
     "eslint-config-react-app": "3.0.0-next.3e165448",
@@ -59,6 +61,7 @@
     "resolve": "1.6.0",
     "sass-loader": "7.0.1",
     "style-loader": "0.21.0",
+    "styled-components": "^3.4.9",
     "svgr": "1.9.2",
     "sw-precache-webpack-plugin": "0.11.5",
     "thread-loader": "1.1.5",
@@ -87,6 +90,7 @@
     ]
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "snapshotSerializers": [
       "jest-emotion/serializer"
     ],
@@ -119,7 +123,8 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "^styled-components": "<rootDir>/node_modules/react-emotion"
+      "^styled-components": "<rootDir>/node_modules/styled-components",
+      "^react-emotion": "<rootDir>/node_modules/react-emotion"
     },
     "moduleFileExtensions": [
       "web.js",

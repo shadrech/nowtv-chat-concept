@@ -1,6 +1,6 @@
 import styled, {css} from "react-emotion"
 
-export const MessageWrapper = styled('div')`
+export const MessageWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@ export const MessageWrapper = styled('div')`
   position: relative;
 `;
 
-export const TextWrapper = styled('div')`
+export const TextWrapper = styled.div`
   background: ${props => props.alignment === "right" ? "#EE5C26" : "white"};
   color: ${props => props.alignment === "right" ? "white" : "#2E3D69"};
   padding: 1rem;
@@ -35,7 +35,17 @@ export const TextWrapper = styled('div')`
   }
 `;
 
-export const AvatarWrapper = styled('div')`
+export const EmailWrapper = styled.figure`
+  position: absolute;
+  background: #1F2B49;
+  padding: 0.5rem;
+  display: flex;
+  font-size: 0.75rem;
+  color: white;
+  border-radius: 0.2rem;
+`;
+
+export const AvatarWrapper = styled.div`
   order: ${props => props.alignment === "right" ? 2 : 1};
   ${props => props.alignment === "right" ? css`
     margin-left: 1rem;
@@ -48,35 +58,27 @@ export const AvatarWrapper = styled('div')`
   align-items: center;
   position: relative;
   
-  &:before {
-    content: ${props => `"${props.email}"`};
-    position: absolute;
-    background: #1F2B49;
-    padding: 0.5rem;
-    display: flex;
-    font-size: 0.75rem;
-    color: white;
-    border-radius: 0.2rem;
+  ${EmailWrapper} {
     cursor: pointer;
     top: -0.5rem;
     opacity: 0;
     transition: opacity 0.5s ease;
   }
   &:hover {
-    &:before {
+    ${EmailWrapper} {
       opacity: 1;
     }
   }
 `;
 
-export const Time = styled('span')`
+export const Time = styled.span`
   font-size: 0.7rem;
   position: absolute;
   bottom: -1.2rem;
   width: 7rem;
 `;
 
-export const Avatar = styled('div')`
+export const Avatar = styled.div`
   background-image: url(${props => props.avatar});
   background-position: center;
   background-size: contain;

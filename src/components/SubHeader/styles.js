@@ -2,7 +2,7 @@ import styled from "react-emotion";
 
 import { MenuItem } from "../Header/styles";
 
-export const SubHeaderWrapper = styled('div')`
+export const SubHeaderWrapper = styled.div`
   height: 3.2rem;
   padding: 0 15rem;
   background: #283765;

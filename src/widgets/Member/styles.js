@@ -1,7 +1,7 @@
 import styled from "react-emotion";
 import { Avatar as StandardAvatar } from "../Message/styles";
 
-export const MemberWrapper = styled('div')`
+export const MemberWrapper = styled.div`
   color: ${props => props.active ? "white" : "#1F2B49"};
   margin: 1rem 0;
   background: ${props => props.active ? "#1F2B49" : "white"};
@@ -19,12 +19,12 @@ export const Avatar = styled(StandardAvatar)`
   border-radius: 1.75rem;
 `;
 
-export const MemberDetails = styled('div')`
+export const MemberDetails = styled.div`
   padding: 0 1rem;
   box-sizing: border-box;
 `;
 
-export const Name = styled('p')`
+export const Name = styled.p`
   font-size: 0.9rem;
   font-weight: bold;
   font-family: Helvetica, sans-serif, Arial;
