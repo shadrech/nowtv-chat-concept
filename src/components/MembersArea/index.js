@@ -22,7 +22,7 @@ const MembersArea = ({members, activeMember, makeActiveMember, clearActiveMember
                         />)}
     </MiddleSection>
     <BottomSection>
-      <DetailsHeading onClick={clearActiveMember}>Show All Messages</DetailsHeading>
+      <DetailsHeading className="show_all" onClick={clearActiveMember}>Show All Messages</DetailsHeading>
     </BottomSection>
   </MembersWrapper>
 );

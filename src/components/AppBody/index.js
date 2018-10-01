@@ -12,7 +12,10 @@ class AppBody extends Component {
     return (
       <BodyWrapper>
         <ChatLogWrapper>
-          {mssgs.map((m, i) => <Message message={m} alignment={activeMember || i%2 === 0 ? "right" : "left"} key={m.messageId} />)}
+          {mssgs.map((m, i) => <Message
+                                  message={m}
+                                  alignment={activeMember || i%2 === 0 ? "right" : "left"}
+                                  key={m.messageId} />)}
         </ChatLogWrapper>
         <MembersArea members={members} activeMember={activeMember} {...rest} />
       </BodyWrapper>    

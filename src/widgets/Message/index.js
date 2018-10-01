@@ -12,7 +12,7 @@ const formats = {
 };
 
 const Message = ({message: {message, avatar, timestamp, email}, alignment}) => (
-  <MessageWrapper alignment={alignment}>
+  <MessageWrapper className="message_component" alignment={alignment}>
     <TextWrapper alignment={alignment}>{message}</TextWrapper>
     <AvatarWrapper alignment={alignment}>
       <Avatar avatar={avatar} />

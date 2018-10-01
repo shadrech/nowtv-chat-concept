@@ -10,7 +10,7 @@ const getMessageStr = count => {
 }
 
 const Member = ({member, makeActiveMember, activeMember}) => (
-  <MemberWrapper onClick={() => makeActiveMember(member)} active={activeMember && activeMember.id === member.id}>
+  <MemberWrapper className="member_component" onClick={() => makeActiveMember(member)} active={activeMember && activeMember.id === member.id}>
     <Avatar avatar={member.avatar} />
     <MemberDetails>
       <Name>{`${member.firstName} ${member.lastName}`}</Name>
