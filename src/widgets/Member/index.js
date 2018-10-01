@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { MemberWrapper } from "./styles";
 import { Avatar, MemberDetails, Name, Text } from "./styles";
@@ -18,5 +19,11 @@ const Member = ({member, makeActiveMember, activeMember}) => (
     </MemberDetails>
   </MemberWrapper>
 )
+
+Member.propTypes = {
+  members: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeMember: PropTypes.object,
+  makeActiveMember: PropTypes.func.isRequired,
+}
 
 export default Member;

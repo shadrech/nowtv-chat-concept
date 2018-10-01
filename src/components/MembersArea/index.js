@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { MembersWrapper, TopSection, Avatar, NameHeading, DetailsHeading, MiddleSection, BottomSection } from "./styles";
 import Member from "../../widgets/Member";
@@ -6,7 +7,7 @@ import Member from "../../widgets/Member";
 const MembersArea = ({members, activeMember, makeActiveMember, clearActiveMember}) => (
   <MembersWrapper>
     {activeMember && 
-      <TopSection>
+      <TopSection className="member_details">
         <Avatar avatar={activeMember.avatar} />
         <NameHeading>{`${activeMember.firstName} ${activeMember.lastName}`}</NameHeading>
         <DetailsHeading>{activeMember.email}</DetailsHeading>
@@ -26,5 +27,12 @@ const MembersArea = ({members, activeMember, makeActiveMember, clearActiveMember
     </BottomSection>
   </MembersWrapper>
 );
+
+MembersArea.propTypes = {
+  members: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeMember: PropTypes.object,
+  makeActiveMember: PropTypes.func.isRequired,
+  clearActiveMember: PropTypes.func.isRequired,
+}
 
 export default MembersArea;

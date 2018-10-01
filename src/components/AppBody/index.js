@@ -13,7 +13,6 @@ class AppBody extends Component {
 
     const prev = i - 1;
     if (prev >= 0) {
-      console.log(messages[prev].userId, messages[i].userId)
       if (messages[prev].userId !== messages[i].userId)
         this.alignment = this.alignment === "right" ? "left" : "right";
     }
@@ -37,6 +36,16 @@ class AppBody extends Component {
       </BodyWrapper>    
     );
   }
+}
+
+AppBody.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  members: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeMember: PropTypes.object,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  makeActiveMember: PropTypes.func.isRequired,
+  clearActiveMember: PropTypes.func.isRequired
 }
 
 export default AppBody;

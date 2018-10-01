@@ -43,6 +43,7 @@ export const EmailWrapper = styled.figure`
   font-size: 0.75rem;
   color: white;
   border-radius: 0.2rem;
+  top: -0.5rem;
 `;
 
 export const AvatarWrapper = styled.div`
@@ -57,18 +58,7 @@ export const AvatarWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  
-  ${EmailWrapper} {
-    cursor: pointer;
-    top: -0.5rem;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  &:hover {
-    ${EmailWrapper} {
-      opacity: 1;
-    }
-  }
+  align-self: flex-end;
 `;
 
 export const Time = styled.span`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import PropType from "prop-types";
 import moment from "moment";
 
@@ -11,16 +11,29 @@ const formats = {
   sameElse: 'DD/MM/YYYY [at] H:mm'
 };
 
-const Message = ({message: {message, avatar, timestamp, email}, alignment}) => (
-  <MessageWrapper className="message_component" alignment={alignment}>
-    <TextWrapper alignment={alignment}>{message}</TextWrapper>
-    <AvatarWrapper alignment={alignment}>
-      <Avatar avatar={avatar} />
-      <Time>{moment(timestamp).calendar(null, formats)}</Time>
-      <EmailWrapper>{email}</EmailWrapper>
-    </AvatarWrapper>
-  </MessageWrapper>
-);
+class Message extends Component {
+  state = {
+    showEmail: false
+  }
+
+  toggleShowEmail = () => {
+    this.setState({showEmail: !this.state.showEmail});
+  }
+
+  render() {
+    const {message: {message, avatar, timestamp, email}, alignment} = this.props;
+    return (
+      <MessageWrapper className="message_component" alignment={alignment}>
+        <TextWrapper alignment={alignment}>{message}</TextWrapper>
+        <AvatarWrapper alignment={alignment} onMouseEnter={this.toggleShowEmail} onMouseLeave={this.toggleShowEmail}>
+          <Avatar avatar={avatar} />
+          <Time>{moment(timestamp).calendar(null, formats)}</Time>
+          {this.state.showEmail && <EmailWrapper>{email}</EmailWrapper>}
+        </AvatarWrapper>
+      </MessageWrapper>
+    );
+  }
+}
 
 Message.propTypes = {
   message: PropType.object,
