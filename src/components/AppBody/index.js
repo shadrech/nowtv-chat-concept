@@ -1,10 +1,26 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 import { BodyWrapper, ChatLogWrapper } from "./styles";
 import MembersArea from "../MembersArea";
 import Message from "../../widgets/Message";
 
 class AppBody extends Component {
+  alignment = "right";
+
+  calcAlignment = i => {
+    const {messages} = this.props;
+
+    const prev = i - 1;
+    if (prev >= 0) {
+      console.log(messages[prev].userId, messages[i].userId)
+      if (messages[prev].userId !== messages[i].userId)
+        this.alignment = this.alignment === "right" ? "left" : "right";
+    }
+
+    return this.alignment;
+  }
+
   render() {
     const {messages, members, activeMember, ...rest /*loading, error*/} = this.props;
     const mssgs = activeMember ? messages.filter(m => m.userId === activeMember.id) : messages;
@@ -14,7 +30,7 @@ class AppBody extends Component {
         <ChatLogWrapper>
           {mssgs.map((m, i) => <Message
                                   message={m}
-                                  alignment={activeMember || i%2 === 0 ? "right" : "left"}
+                                  alignment={activeMember ? "right" : this.calcAlignment(i)}
                                   key={m.messageId} />)}
         </ChatLogWrapper>
         <MembersArea members={members} activeMember={activeMember} {...rest} />
