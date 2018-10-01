@@ -8,6 +8,10 @@ import Message from "../../widgets/Message";
 class AppBody extends Component {
   alignment = "right";
 
+  componentDidMount() {
+    this.props.fetchData();
+  }
+
   calcAlignment = i => {
     const {messages} = this.props;
 
@@ -23,7 +27,6 @@ class AppBody extends Component {
   render() {
     const {messages, members, activeMember, ...rest /*loading, error*/} = this.props;
     const mssgs = activeMember ? messages.filter(m => m.userId === activeMember.id) : messages;
-
     return (
       <BodyWrapper>
         <ChatLogWrapper>
@@ -45,7 +48,8 @@ AppBody.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
   makeActiveMember: PropTypes.func.isRequired,
-  clearActiveMember: PropTypes.func.isRequired
+  clearActiveMember: PropTypes.func.isRequired,
+  fetchData: PropTypes.func.isRequired,
 }
 
 export default AppBody;

@@ -9,18 +9,19 @@ describe("<AppBody />", () => {
   const {messages, members} = dummyStateData;
   const activeFn = jest.fn();
   const clearFn = jest.fn();
+  const fetchData = jest.fn();
   test("should render as expected", () => {
-    const appBody = shallow(<AppBody messages={messages} members={members} makeActiveMember={activeFn} clearActiveMember={clearFn} />);
+    const appBody = shallow(<AppBody messages={messages} members={members} makeActiveMember={activeFn} clearActiveMember={clearFn} fetchData={fetchData} />);
     expect(appBody).toMatchSnapshot();
   });
 
   test("must display all messages when no member is selected", () => {
-    const appBody = mount(<AppBody messages={messages} members={members} makeActiveMember={activeFn} clearActiveMember={clearFn} />);
+    const appBody = mount(<AppBody messages={messages} members={members} makeActiveMember={activeFn} clearActiveMember={clearFn} fetchData={fetchData} />);
     expect(appBody.find(Message)).toHaveLength(4);
   });
 
   test("must display correct number of messages when member is selected", () => {
-    const appBody = mount(<AppBody messages={messages} members={members} activeMember={members[1]} makeActiveMember={activeFn} clearActiveMember={clearFn} />);
+    const appBody = mount(<AppBody messages={messages} members={members} activeMember={members[1]} makeActiveMember={activeFn} clearActiveMember={clearFn} fetchData={fetchData} />);
     expect(appBody.find(Message)).toHaveLength(2);
   });
 });

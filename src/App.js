@@ -1,32 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Provider} from "react-redux";
 import styled from 'react-emotion';
 
-import Provider from "./Provider";
+import ChatLogContainer from "./containers/ChatLogContainer";
 import Header from "./components/Header";
 import SubHeader from "./components/SubHeader";
-import AppBody from "./components/AppBody";
+import store from "./store";
 
-const AppWrapper = styled('div')`
+const AppWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <Provider>
-        {state => (
-          <AppWrapper>
-            <Header />
-            <SubHeader />
-            <AppBody {...state} />
-          </AppWrapper>
-        )}
-      </Provider>
-    );
-  }
-}
+const App = () => (
+  <Provider store={store}>
+      <AppWrapper>
+        <Header />
+        <SubHeader />
+
+        {/* List all containers maybe using react-router routes or something of the like */}
+        <ChatLogContainer />
+      </AppWrapper>
+  </Provider>
+);
 
 export default App;

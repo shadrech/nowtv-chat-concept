@@ -66,6 +66,13 @@ exports[`<AppBody /> should render as expected 1`] = `
   </Styled(div)>
   <MembersArea
     clearActiveMember={[MockFunction]}
+    fetchData={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+      }
+    }
     makeActiveMember={[MockFunction]}
     members={
       Array [
