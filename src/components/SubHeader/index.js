@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import { SubHeaderWrapper, SubMenuItem } from "./styles";
 import { ItemText } from "../Header/styles";
-import { Chevron } from "../../assets/icons";
+import { Chevron } from "../../components/icons";
 
 class Header extends Component {
   render() {

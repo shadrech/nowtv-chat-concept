@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import { HeaderWrapper, Logo, Menu, MenuItem, ItemText } from "./styles";
-import { Chevron } from "../../assets/icons";
+import { Chevron } from "../../components/icons";
 
 class Header extends Component {
   render() {
