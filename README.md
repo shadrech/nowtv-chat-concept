@@ -1,41 +1,24 @@
-# NowTV React Chat Concept
+# NowTV React Chat Concept (REDUX IMPLEMENTATION)
 
 ![NowTV](./clip.gif)
-
-## Tasks
-
-1. In `service.js`, utilise the 'APIs' provided by `data.js` to create a promise resolving to an array of chatlog messages in the following format, sorted by time.
-```json
-[
-  {
-    "messageId": "12356",
-    "userId": "613651251",
-    "fullName": "Robin Balmforth",
-    "timestamp": "2017-02-23T14:57:20.629Z",
-    "email": "robin@example.com",
-    "message": "Hello, World!",
-    "avatar": null
-  },
-  ...
-]
-```
-
-2. Create a view of this dataset, with the root of your React application starting in `App.js`
 
 ## Commands
 
 Run the web application in developer mode
 ```bash
-yarn
-yarn start
+npm i
+npm start
 ```
 Execute Jest tests that have the `.test.js` extension
 ```bash
-yarn test
+npm run test
 ```
-Execute integration tests with cypress with following commands. App must be running on port 3000 (`yarn start`)
+Execute integration tests with cypress with following commands. App must be running on port 3000 (`npm start`)
 ```bash
-yarn cypress:run
+npm run cypress:run
 ```
+
+## Redux implementation
+With redux paradigm we store each 'screen' of the app in the containers folder. This is where all the High Order Components will be stored which will connect to the redux store and permeate the rest of the child components with required data. Depending on how big the app grows we could also create separate action and reducer files to represents various parts of our application, these reducers being then merged with the combineReducers module in the redux package
 
 ![NowTV](./logo.png)
