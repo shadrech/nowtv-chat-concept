@@ -26,16 +26,26 @@
 
 Run the web application in developer mode
 ```bash
-yarn
-yarn start
+npm
+npm start
 ```
 Execute Jest tests that have the `.test.js` extension
 ```bash
-yarn test
+npm test
 ```
-Execute integration tests with cypress with following commands. App must be running on port 3000 (`yarn start`)
+Execute integration tests with cypress with following commands. App must be running on port 3000 (`npm start`)
 ```bash
-yarn cypress:run
+npm cypress:run
+```
+
+## Bonus challenges
+To view redux implementation switch to redux-implementation branch
+```bash
+git checkout redux-implementation
+```
+For deployment discussion switch to deployment-implementation branch
+```bash
+git checkout deployment-implementation
 ```
 
 ![NowTV](./logo.png)

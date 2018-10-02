@@ -21,7 +21,7 @@ const Member = ({member, makeActiveMember, activeMember}) => (
 )
 
 Member.propTypes = {
-  members: PropTypes.arrayOf(PropTypes.object).isRequired,
+  members: PropTypes.arrayOf(PropTypes.object),
   activeMember: PropTypes.object,
   makeActiveMember: PropTypes.func.isRequired,
 }
