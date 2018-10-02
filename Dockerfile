@@ -1,4 +1,4 @@
-FROM node:8.12.0
+FROM node:8.12.0 as base
 LABEL Author=info@tatendachawanzwa.com
 
 RUN apt-get update
@@ -11,6 +11,8 @@ ENV NODE_ENV production
 RUN cd /app && npm i
 COPY . /app
 RUN npm run build
-RUN npm i -g serve
 
-CMD ["serve", "-s", "build"]
+FROM nginx:1.15.4
+COPY --from=base /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

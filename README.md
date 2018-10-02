@@ -1,51 +1,9 @@
-# NowTV React Chat Concept
+# NowTV React Chat Concept (DEPLOYMENT IMPLEMENTATION)
 
-![NowTV](./clip.gif)
-
-## Tasks
-
-1. In `service.js`, utilise the 'APIs' provided by `data.js` to create a promise resolving to an array of chatlog messages in the following format, sorted by time.
-```json
-[
-  {
-    "messageId": "12356",
-    "userId": "613651251",
-    "fullName": "Robin Balmforth",
-    "timestamp": "2017-02-23T14:57:20.629Z",
-    "email": "robin@example.com",
-    "message": "Hello, World!",
-    "avatar": null
-  },
-  ...
-]
-```
-
-2. Create a view of this dataset, with the root of your React application starting in `App.js`
-
-## Commands
-
-Run the web application in developer mode
+## Dockerize
+One way to deploy the app is to create a docker container. This can be a lightweight nginx container serving contents within build folder after running `npm run build`. From the [Dockerfile](Dockerfile) in this project we can create a container called <i>nowtv-app</i>
 ```bash
-npm
-npm start
+docker build -t nowtv-app .
+docker run -p 80:80 nowtv-app # run app locally on port 80
 ```
-Execute Jest tests that have the `.test.js` extension
-```bash
-npm test
-```
-Execute integration tests with cypress with following commands. App must be running on port 3000 (`npm start`)
-```bash
-npm cypress:run
-```
-
-## Bonus challenges
-To view redux implementation switch to redux-implementation branch
-```bash
-git checkout redux-implementation
-```
-For deployment discussion switch to deployment-implementation branch
-```bash
-git checkout deployment-implementation
-```
-
-![NowTV](./logo.png)
+Navigating to `localhost:80` will display the app. The <i>nowtv-app</i> container can be deployed as part of a Kubernates cluster on a EC2 instance for example.
