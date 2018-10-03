@@ -6,4 +6,4 @@ One way to deploy the app is to create a docker container. This can be a lightwe
 docker build -t nowtv-app .
 docker run -p 80:80 nowtv-app # run app locally on port 80
 ```
-Navigating to `localhost:80` will display the app. The <i>nowtv-app</i> container can be deployed as part of a Kubernates cluster on a EC2 instance for example.
+Navigating to `localhost:80` will display the app. The <i>nowtv-app</i> container can be deployed on AWS's Elastic Beanstalk for example.
