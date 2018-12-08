@@ -1,11 +1,19 @@
-version: 2
+version: 2.1
+
 jobs:
-    build:
-        working_directory: ~/tmp
+    units:
         docker:
             - image: circleci/node:7
         steps:
             - checkout
             - run: npm install
             - run: npm run test
-            - run: npm run cypress:run
+
+orbs:
+    cypress: cypress-io/cypress@1.1.0
+workflows:
+    build:
+        jobs:
+            - units
+            - cypress/run:
+                start: 'npm start'
