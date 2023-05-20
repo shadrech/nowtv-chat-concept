@@ -1,6 +1,7 @@
 {
   "name": "nowtv",
   "version": "0.1.0",
+  "author": "Tatenda",
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
